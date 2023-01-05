@@ -6,13 +6,14 @@ import openai
 app = Flask(__name__)
 app.debug = True
 
+fineTunedModel = ''
+
 
 def configure():
     load_dotenv()
-
-
-openai.api_key = os.getenv('api_key')
-fineTunedModel = os.getenv('FINE_TUNED_MODEL')
+    openai.api_key = os.getenv('api_key')
+    global fineTunedModel
+    fineTunedModel = os.getenv('FINE_TUNED_MODEL')
 
 
 def completeText(prompt):
@@ -31,7 +32,6 @@ def autocomplete():
         abort(400, "Couldn't find 'prompt' in the request")
     prompt = data["prompt"]
     res = completeText(prompt)
-    print(res)
     outputText = res["choices"][0]["text"]
     return {"result": outputText}
 
