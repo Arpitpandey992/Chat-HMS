@@ -107,6 +107,7 @@ def createApp(testing: bool = True):
         if not data or "prompt" not in data:
             abort(400, "Couldn't find 'prompt' in the request")
         prompt = data["prompt"]
+        # We can do some more cleaning and checkning before calling the API
         res = completeText(prompt)
         outputText = res["choices"][0]["text"]
         return {"reply": cleanOutputText(outputText)}
