@@ -1,0 +1,12 @@
+curie:ft-personal-2023-01-04-14-53-22
+curie:ft-personal:curie-test-002-2023-01-05-10-44-39
+
+# The below one is trained for 4 epochs with prefix attached to prompts
+curie:ft-personal:curie-test-003-2023-01-05-15-40-20 
+
+curie:ft-personal:curie-test-004-16-epochs-2023-01-05-16-30-35
+curie:ft-personal:curie-test-005-with-prefix-16-epochs-2023-01-05-16-53-17
+
+
+# Do not use this model as it is very costly, and performs similar to curie (or worse, because of training epochs)
+davinci:ft-personal:davinci-test-001-4-epochs-2023-01-05-17-28-00
