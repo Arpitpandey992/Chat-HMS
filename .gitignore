@@ -131,3 +131,4 @@ dmypy.json
 #custom
 trainLogs.txt
 parseInput
+modelsAvailable.txt
