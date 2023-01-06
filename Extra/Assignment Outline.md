@@ -29,6 +29,7 @@ Answer 2
 ### Observations on First Model:
 * It performed very poorly. it wasn't even able to replicate the answers when the prompt given was the exact same as the training data. 
 * Many times it just spits out random information it has internally, completely unrelated to 100ms. We need to provide it context somehow. The solution to this which i tried later was to add a prefix to all those prompts that didn't contain the word `100ms`, so that the model would know the context as well.
+* Before adding prefixes, i just added one more question `What is the name of the company` with it's answer as `100ms`. I thought this should be able to provide what `100ms` meant in any further inputs, but this didn't work sadly. I still kept this question for later training sessions.
 * Also, the first model would often make up a random link for the required task and pack it in markdown hyperlink format, kind of trying to fool us into thinking that it gave a meaningful output.
 
 With this model, i proceeded to making the API and hosting the service.
