@@ -78,13 +78,13 @@ frequency_penalty=1.0,
 
 ## Fixing the relative Hyperlinks in Outputs
 * The hyperlinks that the model sometimes outputs, contains relative links. To deal with them, i processed the final output through a function to replace all relative links with absolute ones (although they give 404 currently).
-* The outputs give by the model contained the links in the format `[Link Text](Link)`
+* The outputs given by the model contained the links in the format `[Link Text](Link)`
 * So, i could use a custom logic to find and replace these links, which would probably be very efficient, but for now, i used regular expression to find these links and replace them using another function.
 * To get the regular expression, i took the help of chat-GPT since it is surprisingly good at writing them. Although the code it gave for replacing the string was sort of wrong, so i wrote it myself.
 * For joining the base path and relative path i used a custom logic using `os` module. I think there must be an easier way to do this but i couldn't find one quickly.
   
 ## Issues in Implementing an Endpoint for Adding more Question/Answers
-* The training process of deep-neural networks is done in batches, so it is pretty much required to have at least hundred examples for training. So, it not at all reasonable to implement an API for directly training the model on single training examples.
+* The training process of deep-neural networks is done in batches, so it is pretty much required to have at least a couple hundred examples for training (also mentioned in OpenAI documentation). So, it not at all reasonable to implement an API for directly training the model on single training examples.
 * Not to mention, the training process itself is costly, with some constant cost attached to each training session, along with variable cost (proportional to number of training samples). So it is again better and economical to train on large samples at once.
 * What we can do here is to store the incoming prompts and completions in a database, and then we can manually train the model or automatically train it whenever the number of samples exceeds a certain amount.
 
