@@ -84,9 +84,9 @@ frequency_penalty=1.0,
 * For joining the base path and relative path i used a custom logic using `os` module. I think there must be an easier way to do this but i couldn't find one quickly.
   
 ## Issues in Implementing an Endpoint for Adding more Question/Answers
-* The training process of deep-neural networks is done in batches, so it is pretty much required to have at least a couple hundred examples for training (also mentioned in OpenAI documentation). So, it not at all reasonable to implement an API for directly training the model on single training examples.
+* The training process of deep-neural networks is done in batches, so it is pretty much required to have at least a couple hundred examples for training (also mentioned in OpenAI documentation). So, it not at all reasonable to implement an API for directly training the model on a single training example.
 * Not to mention, the training process itself is costly, with some constant cost attached to each training session, along with variable cost (proportional to number of training samples). So it is again better and economical to train on large samples at once.
-* What we can do here is to store the incoming prompts and completions in a database, and then we can manually train the model or automatically train it whenever the number of samples exceeds a certain amount.
+* What we can do here is to store the incoming prompts and completions in a database, and then we can manually train the model later or automatically train it whenever the number of samples exceeds a certain amount.
 
 ## Some Observations
 * the model is able to give the correct output for the faq questions and it still works when the order of the words in the question is similar, but asked differently.
